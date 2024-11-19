@@ -1,23 +1,19 @@
 import "../scss/App.scss";
 import Header from "./Header";
 import Board  from "./Board";
-import Grogu from "./Grogu";
+import Dice from "./Dice";
+
 
 const App = () => {
-
+  const rollDice = 
     return (
         <>
-       
         <Header/>
 
     <main className="page">
       <Board />
-      <Grogu/>
 
-      <section>
-        <button className="dice js-dice">Lanzar Dadosss</button>
-        <div className="game-status">En curso</div>
-      </section>
+      <Dice />
 
       <section className="goods-container">
         <div className="goods-item">🍪</div>

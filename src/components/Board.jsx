@@ -1,11 +1,13 @@
+import Grogu from './Grogu';
+
 const Board = () =>{
     return (
       
         
 
- <main className="page">
+<main className="page">
       <section className="board">
-        <div className="cell"></div>
+        <div className="cell"><Grogu/></div>
         <div className="cell"></div>
         <div className="cell"></div>
         <div className="cell"></div>
@@ -15,7 +17,6 @@ const Board = () =>{
       </section>
       </main>
 
-      
 
 )
 }

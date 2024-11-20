@@ -1,19 +1,49 @@
 import "../scss/App.scss";
+import { useState } from 'react';
 import Header from "./Header";
 import Board  from "./Board";
 import Dice from "./Dice";
 
 
 const App = () => {
+  const [groguPosition, setGroguPosition] = useState(0); // Posición de Grogu
+  const [goods, setGoods] = useState({
+    cookies: 3,
+    eggs: 3,
+    frogs: 3,
+  });
+  const [gameStatus, setGameStatus] = useState("En curso"); // Estado del juego
+
+  // Lógica del lanzamiento del dado
   const rollDice = () => {
-    console.log("¡Dado lanzado!");
-  }
+    const roll = Math.floor(Math.random() * 4) + 1; // Número aleatorio entre 1 y 4
+    console.log(`Dado lanzado: ${roll}`);
+
+    if (roll === 4) {
+      // Grogu avanza en el tablero
+      setGroguPosition((prevPosition) => prevPosition + 1);
+      setGameStatus("Grogu ha avanzado una casilla.");
+    } else if (roll === 1 || roll === 2 || roll === 3) {
+      // Eliminar una mercancía
+      const goodsType = roll === 1 ? "cookies" : roll === 2 ? "eggs" : "frogs";
+      if (goods[goodsType] > 0) {
+        setGoods((prevGoods) => ({
+          ...prevGoods,
+          [goodsType]: prevGoods[goodsType] - 1,
+        }));
+        setGameStatus(`Se ha descargado una mercancía: ${goodsType}`);
+      } else {
+        setGameStatus(`No hay más ${goodsType} para descargar.`);
+      }
+    }
+  };
     return (
         <>
         <Header/>
 
     <main className="page">
-      <Board />
+      
+      <Board groguPosition={groguPosition} />
 
       <Dice rollDice={rollDice} />
 

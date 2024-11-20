@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 const Dice = ({rollDice}) => {
     const handleClick = () => {
@@ -10,4 +11,9 @@ const Dice = ({rollDice}) => {
         </section>
     )
 }
+
+Dice.propTypes = {
+    rollDice: PropTypes.func.isRequired, // La propiedad `rollDice` debe ser una función y es obligatoria
+};
+
 export default Dice;

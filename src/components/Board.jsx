@@ -1,5 +1,5 @@
 import Grogu from './Grogu';
-
+import PropTypes from 'prop-types';
 
 const Board = () => {
   const cells = Array (7)
@@ -10,6 +10,10 @@ const Board = () => {
   
   return <section className="board">{cells}</section>
 
+};
+
+Board.propTypes = {
+  cells: PropTypes.array.isRequired, // `cells` debe ser un array y es obligatorio
 };
 
 export default Board ;

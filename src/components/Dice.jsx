@@ -1,11 +1,11 @@
 
-const Dice = () =>{
+const Dice = ({rollDice}) => {
     const handleClick = () => {
-        //console.log("Hago click en el botón" , value);
+        rollDice();
     }
     return (
         <section>
-            <button className="dice js-dice" onClick={handleClick}>Lanzar Dados</button>
+            <button className="dice js-dice" onClick={handleClick}> 🎲 </button>
             <div className="game-status">En curso</div>
         </section>
     )

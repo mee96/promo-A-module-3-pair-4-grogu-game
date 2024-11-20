@@ -5,7 +5,9 @@ import Dice from "./Dice";
 
 
 const App = () => {
-  const rollDice = 
+  const rollDice = () => {
+    console.log("¡Dado lanzado!");
+  }
     return (
         <>
         <Header/>
@@ -13,7 +15,7 @@ const App = () => {
     <main className="page">
       <Board />
 
-      <Dice />
+      <Dice rollDice={rollDice} />
 
       <section className="goods-container">
         <div className="goods-item">🍪</div>
@@ -33,8 +35,10 @@ const App = () => {
       <section>
         <button className="restart-button">Reiniciar Juego</button>
       </section>
-    </main></>
+    </main>
+      </>
     )
-}
+  }
+
 
 export default App

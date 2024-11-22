@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from "./Header";
 import Board  from "./Board";
 import Dice from "./Dice";
+import Form from "./Form";
 
 
 const App = () => {
@@ -13,6 +14,12 @@ const App = () => {
     frogs: 3,
   });
   const [gameStatus, setGameStatus] = useState("En curso"); // Estado del juego
+
+  const [name, setName] = useState("");
+  const updateName = (newName) => {
+    setName(newName);
+  };
+
 
   // Lógica del lanzamiento del dado
   const rollDice = () => {
@@ -41,8 +48,9 @@ const App = () => {
         <>
         <Header/>
 
+
     <main className="page">
-      
+      <Form />
       <Board groguPosition={groguPosition} />
 
       <Dice rollDice={rollDice} />

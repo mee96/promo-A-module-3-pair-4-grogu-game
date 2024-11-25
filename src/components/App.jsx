@@ -4,6 +4,8 @@ import Header from "./Header";
 import Board  from "./Board";
 import Dice from "./Dice";
 import Form from "./Form";
+import GameStatus from "./GameStatus";
+
 
 
 const App = () => {
@@ -16,9 +18,15 @@ const App = () => {
   const [gameStatus, setGameStatus] = useState("En curso"); // Estado del juego
 
   const [name, setName] = useState("");
-  const updateName = (newName) => {
+  /*const updateName = (newName) => {
     setName(newName);
-  };
+  };*/
+    const handleChangeValueInput = (valueInput) => {
+        // recoger lo que la usuaria escribe en el input
+        // modificar la variable de estado name
+        setName(valueInput);
+    }
+
 
 
   // Lógica del lanzamiento del dado
@@ -44,13 +52,19 @@ const App = () => {
       }
     }
   };
+
+
     return (
         <>
         <Header/>
 
 
     <main className="page">
-      <Form />
+      <GameStatus 
+      nameUser={name}/>
+      
+      <Form onChangeName={handleChangeValueInput}/>
+      
       <Board groguPosition={groguPosition} />
 
       <Dice rollDice={rollDice} />

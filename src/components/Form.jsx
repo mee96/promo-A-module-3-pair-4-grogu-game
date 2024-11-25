@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-const Form = ({name, setName}) => {
-    //const [name, setName] = useState ("");
+const Form = ({onChangeName}) => {
+    
     const handleName = (ev) => {
-        setName ({...name, name:ev.target.value});
-        //console.log("ha escrito el nombre", ev.target.value);
-        setName (newName);
+      onChangeName(ev.target.value);
     }
     return(
         <form className="form">
@@ -15,3 +13,4 @@ const Form = ({name, setName}) => {
     );
 };
 export default Form;
+

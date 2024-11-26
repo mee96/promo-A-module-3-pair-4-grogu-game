@@ -3,7 +3,7 @@ import { useState } from "react";
 const Form = ({onChangeName}) => {
     
     const handleName = (ev) => {
-      onChangeName(ev.target.value);
+    onChangeName(ev.target.value);
     }
     return(
         <form className="form">
